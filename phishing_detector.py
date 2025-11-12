@@ -55,9 +55,20 @@ def evaluate_email_risk(email):
         total_score *= weight
         detections.append(f"Suspicious sender domain ({sender_domain}) (*{weight})")
     
-     
-     phishing_prob = min((total_score-1) * 30, 100)
-    
+    Rate=20
+    phishing_prob = min((total_score-1) * Rate, 100)
+
+
+    if  total_score >= 4:
+        risk_level = "🔴 Phishing მაღალი რისკი"
+    elif total_score >= 3:
+        risk_level = "🟠 Phishing საშუალო რისკი"
+    elif total_score = 2:        
+        risk_level = "🟡 Phishing დაბალი რისკი"
+    else: 
+        risk_level = "✅ არა სარისკო მეილი"
+
+   
     return {
         "score": total_score,
         "risk_level": risk_level,
@@ -65,22 +76,12 @@ def evaluate_email_risk(email):
         "detections": detections }
 
 
-if total_score >= :
-    risk_level = "🔴 Phishing მაღალი რისკი"
-elif total_score >= :
-    risk_level = "🟠 Phishing საშუალო რისკი"
-elif total_score >:
-    risk_level = "🟡 Phishing დაბალი რისკი"
-else: 
-    risk_level = "✅ არა სარისკო მეილი"
-
-
-
-
 
 #შემოწმება
+#--------------------
+sample_email = """  
 
-sample_email = """  """
+"""
 
 result = evaluate_email_risk(sample_email)
 

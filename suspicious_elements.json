@@ -64,6 +64,7 @@
         "secure-checkin.online": 0.7,
         "customer-update.cc": 0.7,
         "webmail-security.top": 1.6,
-        "secure-authen.net": 0.7
+        "secure-authen.net": 0.7,
+        "evil-phish.net" : 1.9
     }
 }
